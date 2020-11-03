@@ -1,3 +1,5 @@
+// Revised 07/03/20
+//
 // SSimSuperRes by Shiandow
 //
 // This library is free software; you can redistribute it and/or
@@ -16,12 +18,12 @@
 //!HOOK POSTKERNEL
 //!BIND HOOKED
 //!SAVE LOWRES
-//!WIDTH NATIVE_CROPPED.w
-//!WHEN NATIVE_CROPPED.w OUTPUT.w <
+//!HEIGHT NATIVE_CROPPED.h
+//!WHEN NATIVE_CROPPED.h OUTPUT.h <
 //!COMPONENTS 4
 //!DESC SSSR Downscaling I
 
-#define axis 0
+#define axis 1
 
 #define offset      vec2(0,0)
 
@@ -63,11 +65,11 @@ vec4 hook() {
 //!SAVE LOWRES
 //!WIDTH NATIVE_CROPPED.w
 //!HEIGHT NATIVE_CROPPED.h
-//!WHEN NATIVE_CROPPED.h OUTPUT.h <
+//!WHEN NATIVE_CROPPED.w OUTPUT.w <
 //!COMPONENTS 4
 //!DESC SSSR Downscaling II
 
-#define axis 1
+#define axis 0
 
 #define offset      vec2(0,0)
 
@@ -109,7 +111,7 @@ vec4 hook() {
 //!SAVE varL
 //!WIDTH NATIVE_CROPPED.w
 //!HEIGHT NATIVE_CROPPED.h
-//!WHEN NATIVE_CROPPED.w OUTPUT.w <
+//!WHEN NATIVE_CROPPED.h OUTPUT.h <
 //!COMPONENTS 4
 //!DESC SSSR varL
 
@@ -146,7 +148,7 @@ vec4 hook() {
 //!SAVE varH
 //!WIDTH NATIVE_CROPPED.w
 //!HEIGHT NATIVE_CROPPED.h
-//!WHEN NATIVE_CROPPED.w OUTPUT.w <
+//!WHEN NATIVE_CROPPED.h OUTPUT.h <
 //!COMPONENTS 1
 //!DESC SSSR varH
 
@@ -183,7 +185,7 @@ vec4 hook() {
 //!BIND LOWRES
 //!BIND varL
 //!BIND varH
-//!WHEN NATIVE_CROPPED.w OUTPUT.w <
+//!WHEN NATIVE_CROPPED.h OUTPUT.h <
 //!DESC SSSR final pass
 
 // -- Window Size --
